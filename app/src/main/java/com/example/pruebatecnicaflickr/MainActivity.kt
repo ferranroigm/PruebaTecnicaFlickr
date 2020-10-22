@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaResultadosFragment
+import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaResultadosPresenter
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +13,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val busquedaResultadosFragment = BusquedaResultadosFragment.newInstance()
+        busquedaResultadosFragment.mContext = this
+        BusquedaResultadosPresenter(busquedaResultadosFragment)
         openFragment(busquedaResultadosFragment)
 
 
