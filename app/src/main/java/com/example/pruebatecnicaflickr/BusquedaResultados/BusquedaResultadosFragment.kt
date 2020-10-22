@@ -37,6 +37,7 @@ class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
         mButtonSearch = view.findViewById(R.id.buttonSearch)
         mRecyclerView = view.findViewById(R.id.recyclerViewSearch)
 
+        mPresenter!!.callAPISearch()
         setRecyclerView()
 
     }

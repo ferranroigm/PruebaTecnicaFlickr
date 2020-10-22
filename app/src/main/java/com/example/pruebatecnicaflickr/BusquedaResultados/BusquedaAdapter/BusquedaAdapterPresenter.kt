@@ -1,5 +1,7 @@
 package com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter
 
+import com.example.pruebatecnicaflickr.Network.Requests
+
 class BusquedaAdapterPresenter(var mView: BusquedaAdapterContract.View): BusquedaAdapterContract.Presenter {
 
     init{
@@ -9,6 +11,8 @@ class BusquedaAdapterPresenter(var mView: BusquedaAdapterContract.View): Busqued
     override fun start() {
 
     }
+
+
 
 
 }
