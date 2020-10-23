@@ -12,13 +12,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.BusquedaAdapter
 import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.BusquedaAdapterPresenter
+import com.example.pruebatecnicaflickr.MainActivity
 import com.example.pruebatecnicaflickr.Models.InfoResult
 import com.example.pruebatecnicaflickr.R
 
 class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
 
     var mPresenter:  BusquedaResultadosContract.Presenter? = null
-
+    var mMainActivity: MainActivity? = null
     var mContext: Context? = null
     lateinit var mEditTextSearch: EditText
     lateinit var mButtonSearch: Button
@@ -50,7 +51,7 @@ class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
     }
 
     override fun updateRecyclerView(data: List<InfoResult>) {
-        val adapter = BusquedaAdapter()
+        val adapter = BusquedaAdapter(mMainActivity!!)
         mRecyclerView.layoutManager = LinearLayoutManager(mContext!!)
         BusquedaAdapterPresenter(data, adapter)
         mRecyclerView.adapter = adapter

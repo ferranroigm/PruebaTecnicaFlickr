@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         val busquedaResultadosFragment = BusquedaResultadosFragment.newInstance()
         busquedaResultadosFragment.mContext = this
+        busquedaResultadosFragment.mMainActivity = this
         BusquedaResultadosPresenter(busquedaResultadosFragment)
         openFragment(busquedaResultadosFragment)
 

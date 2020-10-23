@@ -5,11 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.DetailPhoto.DetailPhotoFragment
+import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.DetailPhoto.DetailPhotoPresenter
+import com.example.pruebatecnicaflickr.MainActivity
 import com.example.pruebatecnicaflickr.R
 
-class BusquedaAdapter: RecyclerView.Adapter<BusquedaAdapter.ViewHolder>(), BusquedaAdapterContract.View {
-    
+class BusquedaAdapter(var mMainActivity: MainActivity): RecyclerView.Adapter<BusquedaAdapter.ViewHolder>(), BusquedaAdapterContract.View {
+
     var mPresenter: BusquedaAdapterContract.Presenter? = null
 
     override fun setPresenter(presenter: BusquedaAdapterContract.Presenter) {
@@ -33,6 +38,19 @@ class BusquedaAdapter: RecyclerView.Adapter<BusquedaAdapter.ViewHolder>(), Busqu
 
         mPresenter!!.loadURLImage(holder, unit.url_image)
 
+        holder.container.setOnClickListener {
+            val fragment_detail = DetailPhotoFragment()
+            DetailPhotoPresenter(fragment_detail,unit)
+            openFragment(fragment_detail)
+        }
+
+    }
+
+    private fun openFragment(fragment: Fragment) {
+        val transaction = mMainActivity.supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     
@@ -41,6 +59,7 @@ class BusquedaAdapter: RecyclerView.Adapter<BusquedaAdapter.ViewHolder>(), Busqu
         val author: TextView = itemView.findViewById(R.id.autorUnit)
         val title: TextView = itemView.findViewById(R.id.titleUnit)
         val image: ImageView = itemView.findViewById(R.id.imageViewUnit)
+        val container: ConstraintLayout = itemView.findViewById(R.id.containerConstraintLayout)
 
     }
 
