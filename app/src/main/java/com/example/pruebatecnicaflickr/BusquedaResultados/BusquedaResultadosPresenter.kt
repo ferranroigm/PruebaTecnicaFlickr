@@ -1,5 +1,8 @@
 package com.example.pruebatecnicaflickr.BusquedaResultados
 
+import com.example.pruebatecnicaflickr.Models.BaseModel
+import com.example.pruebatecnicaflickr.Models.InfoResult
+import com.example.pruebatecnicaflickr.Models.SearchResult
 import com.example.pruebatecnicaflickr.Network.Requests
 
 class BusquedaResultadosPresenter(var mView: BusquedaResultadosContract.View): BusquedaResultadosContract.Presenter {
@@ -17,7 +20,16 @@ class BusquedaResultadosPresenter(var mView: BusquedaResultadosContract.View): B
         Requests.getListDataImage(this,"cat")
     }
 
-    override fun dataChanged() {
+    override fun searchQueueDone(data: SearchResult) {
+        BaseModel.list_result_search = data.photos.photo
+        BaseModel.clearListInfoImages()
+        Requests.getInfoImages(this, data)
+    }
 
+    override fun updateModel(data: InfoResult) {
+        BaseModel.addInfoImage(data)
+        if(BaseModel.list_info_images.size == BaseModel.list_result_search.size){
+            mView.updateRecyclerView(BaseModel.list_info_images)
+        }
     }
 }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.BusquedaAdapter
 import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.BusquedaAdapterPresenter
+import com.example.pruebatecnicaflickr.Models.InfoResult
 import com.example.pruebatecnicaflickr.R
 
 class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
@@ -38,15 +39,22 @@ class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
         mRecyclerView = view.findViewById(R.id.recyclerViewSearch)
 
         mPresenter!!.callAPISearch()
-        setRecyclerView()
+        //setRecyclerView()
 
     }
 
-     fun setRecyclerView(){
+     /*fun setRecyclerView(){
          val adapter = BusquedaAdapter()
          mRecyclerView.layoutManager = LinearLayoutManager(mContext!!)
          BusquedaAdapterPresenter(adapter)
          mRecyclerView.adapter = adapter
+    }*/
+
+    override fun updateRecyclerView(data: List<InfoResult>) {
+        val adapter = BusquedaAdapter()
+        mRecyclerView.layoutManager = LinearLayoutManager(mContext!!)
+        BusquedaAdapterPresenter(data, adapter)
+        mRecyclerView.adapter = adapter
     }
 
     companion object {
