@@ -9,6 +9,7 @@ class InfoResult(@SerializedName("description") var description: InfoDescription
                  @SerializedName("server")val server: String,
                  @SerializedName("secret")val secret: String,
                  @SerializedName("owner")val owner: InfoOwner,
+                 @SerializedName("dates")val dates: InfoDates,
                  var url_image: String) {
 
 }

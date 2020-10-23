@@ -38,17 +38,16 @@ class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
         mButtonSearch = view.findViewById(R.id.buttonSearch)
         mRecyclerView = view.findViewById(R.id.recyclerViewSearch)
 
-        mPresenter!!.callAPISearch()
-        //setRecyclerView()
+        buttonListener()
 
     }
 
-     /*fun setRecyclerView(){
-         val adapter = BusquedaAdapter()
-         mRecyclerView.layoutManager = LinearLayoutManager(mContext!!)
-         BusquedaAdapterPresenter(adapter)
-         mRecyclerView.adapter = adapter
-    }*/
+    fun buttonListener(){
+        mButtonSearch.setOnClickListener {
+            var tag = mEditTextSearch.text.toString()
+            mPresenter!!.callAPISearch(tag)
+        }
+    }
 
     override fun updateRecyclerView(data: List<InfoResult>) {
         val adapter = BusquedaAdapter()

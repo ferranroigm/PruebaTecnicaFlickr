@@ -8,7 +8,7 @@ import com.example.pruebatecnicaflickr.Models.SearchResult
 interface BusquedaResultadosContract {
 
     interface Presenter: BasePresenter {
-        fun callAPISearch()
+        fun callAPISearch(tag: String)
         fun searchQueueDone(data: SearchResult)
         fun updateModel(data: InfoResult)
     }

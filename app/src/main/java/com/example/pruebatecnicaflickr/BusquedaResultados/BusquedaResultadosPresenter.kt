@@ -15,9 +15,8 @@ class BusquedaResultadosPresenter(var mView: BusquedaResultadosContract.View): B
 
     }
 
-    override fun callAPISearch() {
-        //TODO: tag
-        Requests.getListDataImage(this,"cat")
+    override fun callAPISearch(tag: String) {
+        Requests.getListDataImage(this,tag)
     }
 
     override fun searchQueueDone(data: SearchResult) {
