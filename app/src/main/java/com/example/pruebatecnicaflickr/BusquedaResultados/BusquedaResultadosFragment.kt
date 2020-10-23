@@ -41,6 +41,10 @@ class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
 
         buttonListener()
 
+        if (!mPresenter!!.isResultSearchEmpty()){
+            updateRecyclerView(mPresenter!!.getLastSearch())
+        }
+
     }
 
     fun buttonListener(){

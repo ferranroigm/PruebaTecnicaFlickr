@@ -31,4 +31,12 @@ class BusquedaResultadosPresenter(var mView: BusquedaResultadosContract.View): B
             mView.updateRecyclerView(BaseModel.list_info_images)
         }
     }
+
+    override fun isResultSearchEmpty(): Boolean {
+        return BaseModel.list_info_images.isEmpty()
+    }
+
+    override fun getLastSearch(): ArrayList<InfoResult> {
+        return BaseModel.list_info_images
+    }
 }

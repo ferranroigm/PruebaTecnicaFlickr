@@ -11,10 +11,11 @@ interface BusquedaResultadosContract {
         fun callAPISearch(tag: String)
         fun searchQueueDone(data: SearchResult)
         fun updateModel(data: InfoResult)
+        fun isResultSearchEmpty(): Boolean
+        fun getLastSearch(): ArrayList<InfoResult>
     }
 
     interface View: BaseView<Presenter> {
-
         fun updateRecyclerView(data: List<InfoResult>)
 
     }
