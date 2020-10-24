@@ -1,6 +1,5 @@
 package com.example.pruebatecnicaflickr.BusquedaResultados
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.BusquedaAdapter
 import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.BusquedaAdapterPresenter
 import com.example.pruebatecnicaflickr.MainActivity
-import com.example.pruebatecnicaflickr.Models.InfoResult
+import com.example.pruebatecnicaflickr.Models.InfoPhoto.InfoResult
 import com.example.pruebatecnicaflickr.R
 
 class BusquedaResultadosFragment(var mMainActivity: MainActivity) : Fragment(), BusquedaResultadosContract.View {

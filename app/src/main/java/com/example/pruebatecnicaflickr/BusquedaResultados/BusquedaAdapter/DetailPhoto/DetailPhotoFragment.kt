@@ -51,6 +51,11 @@ class DetailPhotoFragment(var mMainActivity: MainActivity): Fragment(), DetailPh
 
         mPresenter!!.start()
 
+        buttonListenerShareImage()
+
+    }
+
+    private fun buttonListenerShareImage(){
         mButtonShareImageDetail.setOnClickListener{
 
             val sharingIntent = Intent(Intent.ACTION_SEND)
@@ -60,7 +65,6 @@ class DetailPhotoFragment(var mMainActivity: MainActivity): Fragment(), DetailPh
             startActivity(Intent.createChooser(sharingIntent, "Compartir imagen"))
 
         }
-
     }
 
     private fun getLocalBitmapUri(imgView: ImageView): Uri? {

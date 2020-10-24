@@ -1,5 +1,8 @@
 package com.example.pruebatecnicaflickr.Models
 
+import com.example.pruebatecnicaflickr.Models.InfoPhoto.InfoResult
+import com.example.pruebatecnicaflickr.Models.Search.SearchInfo
+
 object BaseModel {
 
     var list_result_search: List<SearchInfo> = ArrayList()

@@ -1,9 +1,9 @@
 package com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter
 
 import com.bumptech.glide.Glide
-import com.example.pruebatecnicaflickr.Models.InfoResult
+import com.example.pruebatecnicaflickr.Models.InfoPhoto.InfoResult
 
-class BusquedaAdapterPresenter(data: List<InfoResult>,  mView: BusquedaAdapterContract.View): BusquedaAdapterContract.Presenter {
+class BusquedaAdapterPresenter(data: List<InfoResult>, mView: BusquedaAdapterContract.View): BusquedaAdapterContract.Presenter {
 
     private var mModel = BusquedaAdapterModel(data)
 

@@ -2,10 +2,11 @@ package com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaAdapter.Detai
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.example.pruebatecnicaflickr.Models.InfoResult
+import com.example.pruebatecnicaflickr.Models.InfoPhoto.InfoResult
 
 class DetailPhotoPresenter(var mView: DetailPhotoContract.View,
-                           unit_data: InfoResult): DetailPhotoContract.Presenter {
+                           unit_data: InfoResult
+): DetailPhotoContract.Presenter {
 
     private var mModel = DetailPhotoModel(unit_data)
 

@@ -2,8 +2,8 @@ package com.example.pruebatecnicaflickr.Network
 
 import android.util.Log
 import com.example.pruebatecnicaflickr.BusquedaResultados.BusquedaResultadosContract
-import com.example.pruebatecnicaflickr.Models.SearchResult
-import com.example.pruebatecnicaflickr.Models.WrapperPhoto
+import com.example.pruebatecnicaflickr.Models.Search.SearchResult
+import com.example.pruebatecnicaflickr.Models.InfoPhoto.WrapperPhoto
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

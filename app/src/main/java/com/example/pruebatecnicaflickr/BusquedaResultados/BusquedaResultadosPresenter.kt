@@ -1,8 +1,8 @@
 package com.example.pruebatecnicaflickr.BusquedaResultados
 
 import com.example.pruebatecnicaflickr.Models.BaseModel
-import com.example.pruebatecnicaflickr.Models.InfoResult
-import com.example.pruebatecnicaflickr.Models.SearchResult
+import com.example.pruebatecnicaflickr.Models.InfoPhoto.InfoResult
+import com.example.pruebatecnicaflickr.Models.Search.SearchResult
 import com.example.pruebatecnicaflickr.Network.Requests
 
 class BusquedaResultadosPresenter(var mView: BusquedaResultadosContract.View): BusquedaResultadosContract.Presenter {

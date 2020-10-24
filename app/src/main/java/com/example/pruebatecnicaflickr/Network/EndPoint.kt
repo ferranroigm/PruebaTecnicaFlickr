@@ -1,7 +1,7 @@
 package com.example.pruebatecnicaflickr.Network
 
-import com.example.pruebatecnicaflickr.Models.SearchResult
-import com.example.pruebatecnicaflickr.Models.WrapperPhoto
+import com.example.pruebatecnicaflickr.Models.Search.SearchResult
+import com.example.pruebatecnicaflickr.Models.InfoPhoto.WrapperPhoto
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

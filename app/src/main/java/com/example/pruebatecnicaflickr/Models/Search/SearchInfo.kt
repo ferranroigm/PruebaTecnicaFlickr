@@ -1,4 +1,4 @@
-package com.example.pruebatecnicaflickr.Models
+package com.example.pruebatecnicaflickr.Models.Search
 
 import com.google.gson.annotations.SerializedName
 
