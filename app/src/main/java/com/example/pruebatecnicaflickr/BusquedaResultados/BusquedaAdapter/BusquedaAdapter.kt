@@ -39,18 +39,15 @@ class BusquedaAdapter(var mMainActivity: MainActivity): RecyclerView.Adapter<Bus
         mPresenter!!.loadURLImage(holder, unit.url_image)
 
         holder.container.setOnClickListener {
-            val fragment_detail = DetailPhotoFragment(mMainActivity)
-            DetailPhotoPresenter(fragment_detail,unit)
-            openFragment(fragment_detail)
+            val fragmentDetail = DetailPhotoFragment(mMainActivity)
+            DetailPhotoPresenter(fragmentDetail,unit)
+            openFragment(fragmentDetail)
         }
 
     }
 
     private fun openFragment(fragment: Fragment) {
-        val transaction = mMainActivity.supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
+        mMainActivity.openFragment(fragment,true)
     }
 
     

@@ -12,7 +12,7 @@ class BusquedaResultadosPresenter(var mView: BusquedaResultadosContract.View): B
     }
 
     override fun start() {
-
+        mView.checkStateData()
     }
 
     override fun callAPISearch(tag: String) {

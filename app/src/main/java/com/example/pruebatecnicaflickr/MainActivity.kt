@@ -12,19 +12,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val busquedaResultadosFragment = BusquedaResultadosFragment.newInstance()
-        busquedaResultadosFragment.mContext = this
-        busquedaResultadosFragment.mMainActivity = this
+        val busquedaResultadosFragment = BusquedaResultadosFragment.newInstance(this)
         BusquedaResultadosPresenter(busquedaResultadosFragment)
-        openFragment(busquedaResultadosFragment)
-
-
+        openFragment(busquedaResultadosFragment,false)
     }
 
-    private fun openFragment(fragment: Fragment) {
+    fun openFragment(fragment: Fragment, addToBackStack: Boolean) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
-        //transaction.addToBackStack(null)
+        if(addToBackStack){
+            transaction.addToBackStack(null)
+        }
         transaction.commit()
     }
 }

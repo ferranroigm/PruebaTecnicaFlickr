@@ -16,11 +16,9 @@ import com.example.pruebatecnicaflickr.MainActivity
 import com.example.pruebatecnicaflickr.Models.InfoResult
 import com.example.pruebatecnicaflickr.R
 
-class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
+class BusquedaResultadosFragment(var mMainActivity: MainActivity) : Fragment(), BusquedaResultadosContract.View {
 
     var mPresenter:  BusquedaResultadosContract.Presenter? = null
-    var mMainActivity: MainActivity? = null
-    var mContext: Context? = null
     lateinit var mEditTextSearch: EditText
     lateinit var mButtonSearch: Button
     lateinit var mRecyclerView: RecyclerView
@@ -41,10 +39,17 @@ class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
 
         buttonListener()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mPresenter!!.start()
+    }
+
+    override fun checkStateData(){
         if (!mPresenter!!.isResultSearchEmpty()){
             updateRecyclerView(mPresenter!!.getLastSearch())
         }
-
     }
 
     fun buttonListener(){
@@ -55,14 +60,14 @@ class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
     }
 
     override fun updateRecyclerView(data: List<InfoResult>) {
-        val adapter = BusquedaAdapter(mMainActivity!!)
-        mRecyclerView.layoutManager = LinearLayoutManager(mContext!!)
+        val adapter = BusquedaAdapter(mMainActivity)
+        mRecyclerView.layoutManager = LinearLayoutManager(mMainActivity.applicationContext)
         BusquedaAdapterPresenter(data, adapter)
         mRecyclerView.adapter = adapter
     }
 
     companion object {
-        fun newInstance(): BusquedaResultadosFragment = BusquedaResultadosFragment()
+        fun newInstance(mMainActivity: MainActivity): BusquedaResultadosFragment = BusquedaResultadosFragment(mMainActivity)
     }
 
 

@@ -17,6 +17,7 @@ interface BusquedaResultadosContract {
 
     interface View: BaseView<Presenter> {
         fun updateRecyclerView(data: List<InfoResult>)
+        fun checkStateData()
 
     }
 }

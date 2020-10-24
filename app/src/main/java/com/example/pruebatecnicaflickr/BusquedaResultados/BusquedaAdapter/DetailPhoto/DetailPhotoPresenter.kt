@@ -9,8 +9,12 @@ class DetailPhotoPresenter(var mView: DetailPhotoContract.View,
 
     private var mModel = DetailPhotoModel(unit_data)
 
-        init {
+    init {
         mView.setPresenter(this)
+    }
+
+    override fun start() {
+        mView.setData()
     }
 
     override fun getTitleDetail(): String {
@@ -29,17 +33,12 @@ class DetailPhotoPresenter(var mView: DetailPhotoContract.View,
         return mModel.unit_data.url_image
     }
 
-    override fun loadURLImage(view: DetailPhotoFragment, url: String, imageView: ImageView) {
-        Glide.with(view).load(url).into(imageView)
-    }
-
     override fun getDescriptionDetail(): String {
         return mModel.unit_data.description._content
     }
 
-    override fun start() {
-        mView.setData()
+    override fun loadURLImage(view: DetailPhotoFragment, url: String, imageView: ImageView) {
+        Glide.with(view).load(url).into(imageView)
     }
-
 
 }

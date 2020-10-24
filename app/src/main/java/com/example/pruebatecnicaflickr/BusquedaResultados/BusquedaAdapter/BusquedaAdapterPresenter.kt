@@ -20,7 +20,7 @@ class BusquedaAdapterPresenter(data: List<InfoResult>,  mView: BusquedaAdapterCo
     }
 
     override fun start() {
-
+        //Empty method
     }
 
 

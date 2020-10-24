@@ -59,7 +59,6 @@ class DetailPhotoFragment(var mMainActivity: MainActivity): Fragment(), DetailPh
             sharingIntent.putExtra(Intent.EXTRA_STREAM,  uri)
             startActivity(Intent.createChooser(sharingIntent, "Compartir imagen"))
 
-
         }
 
     }
