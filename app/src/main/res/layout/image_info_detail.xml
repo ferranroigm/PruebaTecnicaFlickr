@@ -56,6 +56,17 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"/>
 
+            <Button android:id="@+id/buttonShareImage"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageDateDetail"
+                android:text="Share"
+                android:textSize="12sp"
+                android:layout_marginTop="15dp">
+            </Button>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

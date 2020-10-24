@@ -49,7 +49,7 @@ class BusquedaResultadosFragment : Fragment(), BusquedaResultadosContract.View {
 
     fun buttonListener(){
         mButtonSearch.setOnClickListener {
-            var tag = mEditTextSearch.text.toString()
+            val tag = mEditTextSearch.text.toString()
             mPresenter!!.callAPISearch(tag)
         }
     }

@@ -39,7 +39,7 @@ class BusquedaAdapter(var mMainActivity: MainActivity): RecyclerView.Adapter<Bus
         mPresenter!!.loadURLImage(holder, unit.url_image)
 
         holder.container.setOnClickListener {
-            val fragment_detail = DetailPhotoFragment()
+            val fragment_detail = DetailPhotoFragment(mMainActivity)
             DetailPhotoPresenter(fragment_detail,unit)
             openFragment(fragment_detail)
         }
